@@ -13,7 +13,7 @@ root.geometry("500x300")
 
 pygame.mixer.init()
 
-
+#Create menubar
 menubar = Menu(root)
 root.config(menu=menubar)
 
@@ -67,15 +67,16 @@ def prev_music():
     except:
         pass
 
-    
+ #Set menu bar to be able to load music from your folders/files   
 organize_menu = Menu(menubar)
 organize_menu.add_command(label="Select Folder", command=load_music)
 menubar.add_cascade(label="Organize", menu=organize_menu)
 
+#Set size for music player window
 songlist = Listbox(root, bg="black", fg="white", width=200, height=15)
 songlist.pack()
 
-
+#upload images to music player window
 play_pause_btn_image=tkinter.PhotoImage(file="images/play_pause.png" )
 next_btn_image=tkinter.PhotoImage(file="images/next.png")
 prev_btn_image = tkinter.PhotoImage(file="images/previous.png")
@@ -83,6 +84,7 @@ prev_btn_image = tkinter.PhotoImage(file="images/previous.png")
 control_frame = Frame(root)
 control_frame.pack()
 
+#provide features such as (commands, button feature)
 play_pause_btn = Button(control_frame, image=play_pause_btn_image, borderwidth=0, command=play_pause_music)
 next_btn = Button(control_frame, image=next_btn_image, borderwidth=0, command=next_music)
 prev_btn = Button(control_frame, image=prev_btn_image, borderwidth=0, command=prev_music)
